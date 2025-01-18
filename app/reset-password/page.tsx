@@ -35,10 +35,10 @@ function ResetPasswordPage() {
   const [success, setSuccess] = React.useState<boolean>(false);
   const searchParam = useSearchParams();
 
-  const code = searchParam.get("code");
-  const error = searchParam.get("error");
-  const error_code = searchParam.get("error_code");
-  const error_description = searchParam.get("error_description");
+  const code = searchParam?.get("code") || null;
+  const error = searchParam?.get("error") || null;
+  const error_code = searchParam?.get("error_code") || null;
+  const error_description = searchParam?.get("error_description") || null;
 
   React.useEffect(() => {
     setIsMounted(true);
@@ -68,8 +68,12 @@ function ResetPasswordPage() {
     });
   }
 
-  if (!isMounted) {
-    return null;
+  if (!isMounted || (!code && !error)) {
+    return (
+      <div className="w-full h-screen bg-background flex items-center justify-center">
+        <p>Loading...</p>
+      </div>
+    );
   }
 
   if (error && error_code && error_description) {

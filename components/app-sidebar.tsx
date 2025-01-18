@@ -210,7 +210,7 @@ export function AppSidebar() {
     setAvatarUrl(url);
 
     console.log("Avatar URL:", url);
-  }, []); // No dependencies since it doesn't rely on props or state
+  }, [supabase]); // Include 'supabase' in the dependency array
 
   React.useEffect(() => {
     fetchSession();
@@ -224,7 +224,7 @@ export function AppSidebar() {
     return () => {
       listener.subscription.unsubscribe();
     };
-  }, [fetchSession]); // Add fetchSession as a dependency
+  }, [fetchSession, supabase.auth]); // Add fetchSession and supabase.auth as dependencies
 
   if (!mounted) return null;
 

@@ -4,11 +4,9 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "react-hot-toast";
 
-export const poppins = Poppins({
+const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"], // Add desired font weights
-  style: ["normal", "italic"], // Optional: Specify styles
-  display: "swap", // Ensures fonts render immediately
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -30,7 +28,7 @@ export default function RootLayout({
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange>
-          {children}
+          <>{children}</>
           <Toaster position="top-right" reverseOrder={false} />
         </ThemeProvider>
       </body>
