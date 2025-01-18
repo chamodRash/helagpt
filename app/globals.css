@@ -2,20 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 0 0% 100%;
+    --foreground: 181 9% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 181 9% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 181 9% 10%;
+    --primary: 181 86% 35%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 180 20% 94%;
+    --secondary-foreground: 181 10% 20%;
+    --muted: 180 15% 95%;
+    --muted-foreground: 181 12% 40%;
+    --accent: 180 25% 90%;
+    --accent-foreground: 181 10% 20%;
+    --destructive: 0 84% 65%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 180 12% 85%;
+    --input: 180 15% 90%;
+    --ring: 181 86% 35%;
+    --radius: 0.5rem;
+    --chart-1: 181 76% 55%;
+    --chart-2: 175 56% 45%;
+    --chart-3: 170 36% 35%;
+    --chart-4: 190 76% 60%;
+    --chart-5: 200 87% 65%;
+  }
+
+  .dark {
+    --background: 0 0% 7%; /* Deep black background */
+    --foreground: 0 0% 95%; /* Bright white for text */
+    --card: 0 0% 12%; /* Slightly lighter black for cards */
+    --card-foreground: 0 0% 95%; /* White for text on cards */
+    --popover: 0 0% 10%; /* Close to black for popovers */
+    --popover-foreground: 0 0% 95%; /* White for popover text */
+    --primary: 175 100% 54%; /* Teal primary color */
+    --primary-foreground: 0 0% 10%; /* White text on primary */
+    --secondary: 182, 80%, 26%; /* Dark gray secondary */
+    --secondary-foreground: 0 0% 95%; /* White for secondary text */
+    --muted: 0 0% 14%; /* Muted dark gray */
+    --muted-foreground: 0 0% 60%; /* Light gray for muted text */
+    --accent: 0 0% 20%; /* Slightly lighter black for accent */
+    --accent-foreground: 0 0% 95%; /* White for accent text */
+    --destructive: 0 60% 65%; /* Red for destructive actions */
+    --destructive-foreground: 0 85% 98%; /* White text for destructive */
+    --border: 0 0% 20%; /* Dark gray for borders */
+    --input: 0 0% 20%; /* Matches border for inputs */
+    --ring: 175 100% 44%; /* Slightly darker teal for focus rings */
+    --chart-1: 175 85% 50%; /* Bright teal for charts */
+    --chart-2: 175 70% 45%; /* Medium teal */
+    --chart-3: 175 60% 40%; /* Dark teal */
+    --chart-4: 200 80% 65%; /* Lighter teal for variety */
+    --chart-5: 200 90% 60%; /* Vibrant teal */
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
