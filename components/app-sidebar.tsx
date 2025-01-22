@@ -39,7 +39,7 @@ const data = {
   navMain: [
     {
       title: "Text Generation",
-      url: "/dashboard/text",
+      url: "/dashboard/chat",
       icon: Text,
       isActive: true,
       items: [

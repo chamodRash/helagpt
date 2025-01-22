@@ -23,6 +23,7 @@ export async function emailRegister(formData: z.infer<typeof RegisterSchema>) {
 
   const { error } = await supabase.auth.signUp(data);
 
+  console.log(error);
   if (error) {
     return { error: "Something went wrong!" };
   }
