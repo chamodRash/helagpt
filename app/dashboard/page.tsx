@@ -2,11 +2,20 @@
 
 import { createClient } from "@/utils/supabase/server";
 
+import { generateText } from "ai";
+import { openai } from "@ai-sdk/openai";
+
 export default async function Page() {
   const supabase = await createClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();
+
+  const { text } = await generateText({
+    model: openai("gpt-3.5-turbo"),
+    prompt: "What is love?",
+  });
+  console.log(text);
 
   return (
     <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
